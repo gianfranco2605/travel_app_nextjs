@@ -52,20 +52,6 @@ const CampSite = ({
 
 const Camp = () => {
   const scrollContainerRef = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const handleScroll = (scrollDirection) => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = 800; // Adjust as needed
-      if (scrollDirection === "left") {
-        container.scrollLeft -= scrollAmount;
-      } else {
-        container.scrollLeft += scrollAmount;
-      }
-      setScrollPosition(container.scrollLeft);
-    }
-  };
 
   return (
     <section className="2xl:max-container relative flex flex-col py-10 lg_mb-10 lg:py-20 xl:mb-20">
@@ -105,20 +91,6 @@ const Camp = () => {
             className="camp-quote"
           />
         </div>
-      </div>
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={() => handleScroll("left")}
-          disabled={scrollPosition === 0}
-        >
-          Scroll Left
-        </button>
-        <button
-          onClick={() => handleScroll("right")}
-          disabled={scrollPosition >= 300} // Adjust based on your content width
-        >
-          Scroll Right
-        </button>
       </div>
     </section>
   );
